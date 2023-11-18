@@ -13,7 +13,7 @@ const VaccineList = () => {
       });
   }, []);
 
-  console.log(characters);
+  // console.log(characters);
 
   return (
     <>
@@ -46,7 +46,7 @@ const VaccineList = () => {
                     <td>
                       <ul>
                         {characters.map((data) => (
-                          <li key={data._id}>{data.createdAt}</li>
+                          <li key={data._id}>{data.vaccineDate}</li>
                         ))}
                       </ul>
                     </td>
@@ -77,7 +77,7 @@ const VaccineList = () => {
                     <td></td>
                   </tr>
                   <tr className="spacer">
-                    <td colspan="100"></td>
+                    <td colSpan="100"></td>
                   </tr>
                 </tbody>
               </table>

@@ -1,13 +1,28 @@
+import { useNavigate } from "react-router-dom";
+import * as vaccineService from "../../services/vaccineService.js";
+
 const AddVaccine = () => {
+  const navigate = useNavigate();
+
+  const addVaccineSubmitHandler = async (e) => {
+    e.preventDefault();
+
+    const addVaccineData = Object.fromEntries(new FormData(e.currentTarget));
+
+    const result = await vaccineService.create(addVaccineData);
+
+    navigate("/vaccinated");
+  };
+
   return (
     <div className="container">
       <div className="coronata">
         <div id="ho_efcet" className="reader text_align_center">
-          <form id="create">
+          <form id="create" onSubmit={addVaccineSubmitHandler}>
             <div className="col-md-12">
               <div className="titlepage text_align_center ">
                 <br />
-                <h2>Create Vaccine</h2>
+                <h2>Vaccine</h2>
               </div>
               <label
                 className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"

@@ -41,9 +41,6 @@ const Header = () => {
                     <Link to="/contact">logout </Link>
                   </li>
                 </ul>
-                <button className="nav-toggler">
-                  <span></span>
-                </button>
               </nav>
             </div>
           </div>
