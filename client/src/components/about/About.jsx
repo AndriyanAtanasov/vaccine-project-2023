@@ -8,8 +8,8 @@ const About = () => {
               <div className="titlepage text_align_center ">
                 <h2>WHO WE ARE</h2>
                 <p>
-                  making this the first true generator on the Internet. It uses
-                  a dictionary of over 200 Latin words, combined with a handful
+                  Оur goal is to create a community for people who are
+                  vaccinated and want to share
                 </p>
               </div>
             </div>

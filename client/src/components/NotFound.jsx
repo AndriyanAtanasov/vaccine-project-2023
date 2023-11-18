@@ -8,8 +8,12 @@ const NotFound = () => {
           </div>
           <div className="col-md-5 oder1">
             <div className="titlepage">
-              <h2>PAGE IT'S NOT FOUND</h2>
+              <h2>
+                ERROR 404
+                <br /> PAGE IT'S NOT FOUND
+              </h2>
             </div>
+            <br />
           </div>
         </div>
       </div>

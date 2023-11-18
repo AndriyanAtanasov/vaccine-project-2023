@@ -19,7 +19,7 @@ function App() {
         <Route path="/vaccinated" element={<VaccineList />}></Route>
         <Route path="/news" element={<News />}></Route>
         <Route path="/add-vaccine" element={<AddVaccine />}></Route>
-        {/* <Route path="/register" element={<Register />}></Route> */}
+        <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
