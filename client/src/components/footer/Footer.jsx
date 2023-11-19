@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer>
@@ -9,29 +11,19 @@ const Footer = () => {
                 <h3>Resources</h3>
                 <ul className="menu_footer">
                   <li>
-                    <a href="index.html">Home</a>
+                    <Link to="/">Home</Link>
                   </li>
                   <li></li>
                   <li>
-                    <a href="javascript:void(0)">What we do</a>
+                    <Link to="/about">About</Link>
                   </li>
                   <li></li>
                   <li>
-                    {" "}
-                    <a href="javascript:void(0)">Media</a>
+                    <Link to="/vaccinated">Vaccinated</Link>
                   </li>
                   <li></li>
                   <li>
-                    {" "}
-                    <a href="javascript:void(0)">Travel Advice</a>
-                  </li>
-                  <li></li>
-                  <li>
-                    <a href="javascript:void(0)">Protection</a>
-                  </li>
-                  <li></li>
-                  <li>
-                    <a href="javascript:void(0)">Care</a>
+                    <Link to="/news">news</Link>
                   </li>
                   <li></li>
                 </ul>
@@ -41,10 +33,8 @@ const Footer = () => {
               <div className="hedingh3 text_align_left">
                 <h3>About</h3>
                 <p>
-                  Many desktop publishing packages and web page editors now use
-                  Lorem Ipsum as their default model text, and a search for
-                  'lorem ipsum' will uncover many web sites still in their
-                  infancy. Various
+                  Оur goal is to create a community for people who are
+                  vaccinated and want to share
                 </p>
               </div>
             </div>
@@ -54,15 +44,15 @@ const Footer = () => {
                 <ul className="top_infomation">
                   <li>
                     <i className="fa fa-map-marker" aria-hidden="true" />
-                    Making this the first true
+                    Sofia, Bulgaria
                   </li>
                   <li>
                     <i className="fa fa-phone" aria-hidden="true" />
-                    Call : +01 1234567890
+                    Call : +359 78978978
                   </li>
                   <li>
                     <i className="fa fa-envelope" aria-hidden="true" />
-                    <a href="Javascript:void(0)">Email : demo@gmail.com</a>
+                    <a href="#">Email: atanasov@mail.com</a>
                   </li>
                 </ul>
               </div>
