@@ -1,22 +1,19 @@
-const Register = () => {
+const Login = () => {
   return (
     <div className="coronata">
       <div className="content">
         <div className="container">
-          <h1 className="mb-5">Register</h1>
-          <div className="register-container">
-            <form className="register-form">
+          <h1 className="mb-5">Login</h1>
+          <div className="login-container">
+            <form className="login-form">
               <label htmlFor="username">Username:</label>
               <br />
-              <input type="text" id="email" /> <br />
-              <label htmlFor="email">Email address:</label> <br />
-              <input type="email" id="email" />
-              <br />
+              <input type="text" id="username" /> <br />
               <label htmlFor="password">Password:</label> <br />
               <input type="password" id="password" /> <br />
               <br />
               <button className="read_more" type="submit">
-                Register
+                Login
               </button>
             </form>
             <br />
@@ -33,4 +30,5 @@ const Register = () => {
     </div>
   );
 };
-export default Register;
+
+export default Login;

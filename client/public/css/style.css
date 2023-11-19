@@ -279,14 +279,14 @@ button {
   color: #fff;
 
   width: 100%;
-  max-width: 275px;
+  max-width: 100px;
   text-align: center;
   display: inline-block;
-  transition: ease-in all 0.5s;
+  /* transition: ease-in all 0.5s; */
   font-weight: bold;
-  height: 75px;
+  height: 45px;
   text-transform: uppercase;
-  line-height: 75px;
+  line-height: 45px;
 }
 
 .read_more:hover {

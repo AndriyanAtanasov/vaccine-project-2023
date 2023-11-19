@@ -40,6 +40,12 @@ const Header = () => {
                   <li>
                     <Link to="/contact">logout </Link>
                   </li>
+                  {/* <li>
+                    <Link to="/register">Register </Link>
+                  </li> */}
+                  {/* <li>
+                    <Link to="/login">login </Link>
+                  </li> */}
                 </ul>
               </nav>
             </div>
