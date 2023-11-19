@@ -1,7 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import * as vaccineService from "../../services/vaccineService.js";
 
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const AddVaccine = () => {
+  // date picker state
+  const [selectedDate, setSelectedDate] = useState(null);
+
   const navigate = useNavigate();
 
   const addVaccineSubmitHandler = async (e) => {
@@ -24,94 +31,61 @@ const AddVaccine = () => {
                 <br />
                 <h2>Vaccine</h2>
               </div>
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="firstName"
-              ></label>
+              <label className="col-md-12 col-sm-9" htmlFor="firstName">
+                First name
+              </label>
               <input
                 type="text"
                 id="firstName"
                 name="firstName"
-                placeholder="Enter first name"
+                placeholder=""
               />
-
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="lastName"
-              ></label>
+              <label className="col-md-12 col-sm-9" htmlFor="lastName">
+                Last name
+              </label>
+              <input type="text" id="lastName" name="lastName" placeholder="" />
+              <label className="  col-md-12 col-sm-9" htmlFor="email">
+                Email
+              </label>
+              <input type="text" id="email" name="email" placeholder="" />
+              <label className="col-md-12 col-sm-9" htmlFor="phoneNumber">
+                phone number
+              </label>
               <input
                 type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="Enter last name"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder=""
+              />
+              <label className="col-md-12 col-sm-9" htmlFor="vaccineDate">
+                Vaccine date
+              </label>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                dateFormat="dd-MM-yyyy"
+                name="vaccineDate"
+                placeholderText=""
               />
 
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="email"
-              ></label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                placeholder="Enter email address"
-              />
-
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="vaccineType"
-              ></label>
+              <label className=" col-md-12 col-sm-9" htmlFor="vaccineType">
+                Vaccine type
+              </label>
               <input
                 type="text"
                 id="vaccineType"
                 name="vaccineType"
-                placeholder="Enter vaccine type"
+                placeholder=""
               />
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="country"
-              ></label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                placeholder="Enter country"
-              />
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="city"
-              ></label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                placeholder="Enter city"
-              />
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="street"
-              ></label>
-              <input
-                type="text"
-                id="street"
-                name="street"
-                placeholder="Enter street"
-              />
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="streetNumber"
-              ></label>
-              <input
-                type="text"
-                id="streetNumber"
-                name="streetNumber"
-                placeholder="Enter street number"
-              />
-              <label
-                className="col-lg-10 offset-lg-1 col-md-12 col-sm-9"
-                htmlFor="game-img"
-              ></label>
-
+              <label className=" col-md-12 col-sm-9" htmlFor="country">
+                Country
+              </label>
+              <input type="text" id="country" name="country" placeholder="" />
+              <label className="col-md-12 col-sm-9" htmlFor="city">
+                City
+              </label>
+              <input type="text" id="city" name="city" placeholder="" />
+              <label className=" col-md-12 col-sm-9" htmlFor=""></label>
               <br />
               <input
                 className="read_more "
