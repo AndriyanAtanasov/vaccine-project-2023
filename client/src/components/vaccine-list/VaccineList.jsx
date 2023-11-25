@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
-
-const base_url = "http://localhost:3030/jsonstore";
+import { Link } from "react-router-dom";
+import InfoModal from "../infoModal/InfoModal.jsx";
+import * as vaccineService from "../../services/vaccineService.js";
 
 const VaccineList = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetch(`${base_url}/users`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCharacters(Object.values(data)); // Use Object.values on data
-      });
+    vaccineService.getAll().then((result) => setCharacters(result));
   }, []);
 
-  // console.log(characters);
+  const modal = () => {
+    return InfoModal;
+  };
 
   return (
     <>
@@ -74,6 +73,15 @@ const VaccineList = () => {
                         ))}
                       </ul>
                     </td>
+                    <td>
+                      {" "}
+                      <ul>
+                        <Link to="/vaccinated" onClick={modal}>
+                          Info
+                        </Link>
+                      </ul>
+                    </td>
+
                     <td></td>
                   </tr>
                   <tr className="spacer">
