@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as vaccineService from "../../services/vaccineService.js";
 
 //npm install react-datepicker
@@ -17,7 +17,7 @@ const AddVaccine = () => {
 
     const addVaccineData = Object.fromEntries(new FormData(e.currentTarget));
 
-    const result = await vaccineService.create(addVaccineData);
+    await vaccineService.create(addVaccineData);
 
     navigate("/vaccinated");
   };

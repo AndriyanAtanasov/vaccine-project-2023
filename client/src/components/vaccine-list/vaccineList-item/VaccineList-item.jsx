@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 const VaccineListItem = ({
+  _id,
   vaccineType,
   vaccineDate,
   firstName,
@@ -38,9 +41,9 @@ const VaccineListItem = ({
       <td>
         <ul>
           <li>
-            <a href="#" className="read_more">
+            <Link to={`/vaccine/${_id}`} className="read_more">
               Info
-            </a>
+            </Link>
           </li>
         </ul>
       </td>

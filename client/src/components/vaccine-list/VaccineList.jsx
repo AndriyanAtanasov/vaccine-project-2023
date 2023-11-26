@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import * as vaccineService from "../../services/vaccineService.js";
 import VaccineListItem from "./vaccineList-item/VaccineList-item.jsx";
 
@@ -29,7 +28,7 @@ const VaccineList = () => {
                     <th scope="col">More options</th>
                   </tr>
                 </thead>
-                {characters.map((char) => (
+                {characters.reverse().map((char) => (
                   <VaccineListItem key={char._id} {...char} />
                 ))}
 
