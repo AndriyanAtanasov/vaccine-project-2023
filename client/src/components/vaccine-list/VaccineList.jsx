@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import InfoModal from "../infoModal/InfoModal.jsx";
 import * as vaccineService from "../../services/vaccineService.js";
+import VaccineListItem from "./vaccineList-item/VaccineList-item.jsx";
 
 const VaccineList = () => {
   const [characters, setCharacters] = useState([]);
@@ -9,10 +10,6 @@ const VaccineList = () => {
   useEffect(() => {
     vaccineService.getAll().then((result) => setCharacters(result));
   }, []);
-
-  const modal = () => {
-    return InfoModal;
-  };
 
   return (
     <>
@@ -33,61 +30,9 @@ const VaccineList = () => {
                     <th scope="col">More options</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr scope="row">
-                    <td>
-                      <ul>
-                        {characters.map((data) => (
-                          <li key={data._id}>{data.vaccineType}</li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td>
-                      <ul>
-                        {characters.map((data) => (
-                          <li key={data._id}>{data.vaccineDate}</li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td>
-                      <ul>
-                        {characters.map((data) => (
-                          <li key={data._id}>
-                            {data.firstName} {data.lastName}
-                          </li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td>
-                      <ul>
-                        {characters.map((data) => (
-                          <li key={data._id}>{data.email}</li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td>
-                      {" "}
-                      <ul>
-                        {characters.map((data) => (
-                          <li key={data._id}>{data.phoneNumber}</li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td>
-                      {" "}
-                      <ul>
-                        <Link to="/vaccinated" onClick={modal}>
-                          Info
-                        </Link>
-                      </ul>
-                    </td>
-
-                    <td></td>
-                  </tr>
-                  <tr className="spacer">
-                    <td colSpan="100"></td>
-                  </tr>
-                </tbody>
+                {characters.map((char) => (
+                  <VaccineListItem key={char._id} {...char} />
+                ))}
               </table>
             </div>
           </div>

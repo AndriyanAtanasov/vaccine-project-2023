@@ -9,7 +9,6 @@ import News from "./components/news/News.jsx";
 import Register from "./components/register/Register.jsx";
 import AddVaccine from "./components/vaccine-create/AddVaccine.jsx";
 import Login from "./components/login/Login.jsx";
-import InfoModal from "./components/infoModal/InfoModal.jsx";
 
 function App() {
   return (
@@ -23,7 +22,7 @@ function App() {
         <Route path="/add-vaccine" element={<AddVaccine />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/InfoModal" element={<InfoModal />}></Route>
+
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
