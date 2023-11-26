@@ -38,7 +38,9 @@ const VaccineListItem = ({
       <td>
         <ul>
           <li>
-            <button>Info</button>
+            <a href="#" className="read_more">
+              Info
+            </a>
           </li>
         </ul>
       </td>

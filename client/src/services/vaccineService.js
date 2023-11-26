@@ -1,23 +1,23 @@
-import { request } from "./requests.js";
+import * as request from "./requests.js";
+
 const baseUrl = "http://localhost:3030/jsonstore/users";
 
 export const getAll = async () => {
-  const result = await request("GET", baseUrl);
+  try {
+    const result = await request.get(baseUrl);
 
-  // console.log(Object.values(result));
-  return Object.values(result);
+    return Object.values(result); //getting all info for users from server.
+  } catch {
+    console.log("GET ERROR");
+  }
 };
 
 export const create = async (addVaccineData) => {
-  const response = await fetch(baseUrl, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(addVaccineData),
-  });
+  try {
+    const result = await request.post(baseUrl, addVaccineData);
 
-  const result = await response.json();
-
-  return result;
+    return result; //add new vaccine to server
+  } catch {
+    console.log("POST ERROR, not added new vaccine to server");
+  }
 };

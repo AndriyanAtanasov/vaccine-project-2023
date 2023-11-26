@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import InfoModal from "../infoModal/InfoModal.jsx";
 import * as vaccineService from "../../services/vaccineService.js";
 import VaccineListItem from "./vaccineList-item/VaccineList-item.jsx";
 
@@ -33,6 +32,12 @@ const VaccineList = () => {
                 {characters.map((char) => (
                   <VaccineListItem key={char._id} {...char} />
                 ))}
+
+                {characters.length === 0 && (
+                  <h3 className="coronata mb-5">
+                    No info yet, please try later
+                  </h3>
+                )}
               </table>
             </div>
           </div>
