@@ -8,12 +8,31 @@ const Register = () => {
             <form className="register-form">
               <label htmlFor="username">Username:</label>
               <br />
-              <input type="text" id="email" /> <br />
-              <label htmlFor="email">Email address:</label> <br />
-              <input type="email" id="email" />
+              <input
+                type="text"
+                id="username"
+                autoComplete="username"
+                name="username"
+              />
               <br />
-              <label htmlFor="password">Password:</label> <br />
-              <input type="password" id="password" /> <br />
+              <label htmlFor="email">Email address:</label>
+              <br />
+              <input
+                type="email"
+                id="email"
+                autoComplete="email"
+                name="email"
+              />
+              <br />
+              <label htmlFor="password">Password:</label>
+              <br />
+              <input
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                name="password"
+              />
+              <br />
               <br />
               <button className="read_more" type="submit">
                 Register

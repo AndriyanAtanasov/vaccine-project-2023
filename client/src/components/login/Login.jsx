@@ -28,6 +28,7 @@ const Login = () => {
               <input
                 type="text"
                 id="email"
+                autoComplete="email"
                 name={LoginFormKeys.EMAIL}
                 onChange={onChange}
                 value={values[LoginFormKeys.EMAIL]}
@@ -35,8 +36,9 @@ const Login = () => {
               <br />
               <label htmlFor="password">Password:</label> <br />
               <input
-                type="current-password"
+                type="password"
                 id="password"
+                autoComplete="current-password"
                 name={LoginFormKeys.PASSWORD}
                 onChange={onChange}
                 value={values[LoginFormKeys.PASSWORD]}
