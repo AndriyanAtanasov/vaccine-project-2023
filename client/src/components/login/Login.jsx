@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import useForm from "../../hooks/useForm.js";
 import AuthContext from "../../contexts/authContext.js";
+import { Link } from "react-router-dom";
 
 const LoginFormKeys = {
   EMAIL: "email",
@@ -46,6 +47,14 @@ const Login = () => {
                 Login
               </button>
             </form>
+            <br />
+            <p>
+              Don't have an account ?
+              <Link to={"/register"} style={{ color: "red" }}>
+                {" "}
+                Register here
+              </Link>
+            </p>
             <br />
           </div>
         </div>
