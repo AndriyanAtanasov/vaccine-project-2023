@@ -1,4 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+import AuthContext from "./contexts/authContext.js";
+import * as authService from "./services/authService.js";
+
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Home from "./components/home/Home.jsx";
@@ -10,18 +15,28 @@ import Register from "./components/register/Register.jsx";
 import AddVaccine from "./components/vaccine-create/AddVaccine.jsx";
 import Login from "./components/login/Login.jsx";
 import VaccineInfo from "./components/vaccine-info/VaccineInfo.jsx";
-import { useState } from "react";
-import AuthContext from "./contexts/authContext.js";
 
 function App() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values);
+  const loginSubmitHandler = async (values) => {
+    const result = await authService.Login(values.email, values.password);
+
+    setAuth(result);
+    console.log(auth.username);
+
+    navigate("/");
+  };
+
+  const valuesContext = {
+    loginSubmitHandler,
+    username: auth.username,
+    isAuthenticated: !!auth.username, // if have user change in boolean value on true
   };
 
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler }}>
+    <AuthContext.Provider value={valuesContext}>
       <div>
         <Header />
         <Routes>
