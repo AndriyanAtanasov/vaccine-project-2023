@@ -1,9 +1,16 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext.js";
+import React, { useState } from "react";
 
 const Header = () => {
   const { isAuthenticated, username } = useContext(AuthContext);
+
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <header className="header-area">
@@ -41,10 +48,27 @@ const Header = () => {
                         <Link to="/add-vaccine">add vaccine</Link>
                       </li>
                       <li>
-                        <Link to="/news">{username}</Link>
-                      </li>
-                      <li>
-                        <Link to="/contact">logout</Link>
+                        <div className="dropdown">
+                          <button
+                            onClick={handleDropdownToggle}
+                            className="dropbtn"
+                          >
+                            HI, {username}
+                          </button>
+                          {isDropdownOpen && (
+                            <div className="dropdown-content">
+                              <a href="#" className="dropdown-item">
+                                Home
+                              </a>
+                              <a href="#" className="dropdown-item">
+                                About
+                              </a>
+                              <a href="#" className="dropdown-item">
+                                Contact
+                              </a>
+                            </div>
+                          )}
+                        </div>
                       </li>
                     </>
                   )}
