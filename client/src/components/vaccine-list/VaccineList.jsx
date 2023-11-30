@@ -31,13 +31,10 @@ const VaccineList = () => {
                 {characters.reverse().map((char) => (
                   <VaccineListItem key={char._id} {...char} />
                 ))}
-
-                {characters.length === 0 && (
-                  <h3 className="coronata mb-5">
-                    No info yet, please try later
-                  </h3>
-                )}
               </table>
+              {characters.length === 0 && (
+                <h3 className="coronata mb-5">No info yet, please try later</h3>
+              )}
             </div>
           </div>
         </div>

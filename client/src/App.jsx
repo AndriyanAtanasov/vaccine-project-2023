@@ -15,6 +15,7 @@ import Register from "./components/register/Register.jsx";
 import AddVaccine from "./components/vaccine-create/AddVaccine.jsx";
 import Login from "./components/login/Login.jsx";
 import VaccineInfo from "./components/vaccine-info/VaccineInfo.jsx";
+import Logout from "./components/logout/Logout.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -24,6 +25,8 @@ function App() {
     const result = await authService.Login(values.email, values.password);
 
     setAuth(result);
+
+    localStorage.setItem("accessToken", result.accessToken);
 
     navigate("/");
   };
@@ -38,12 +41,20 @@ function App() {
 
     setAuth(result);
 
+    localStorage.setItem("accessToken", result.accessToken);
+
     navigate("/");
+  };
+
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem("accessToken");
   };
 
   const valuesContext = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     username: auth.username,
     isAuthenticated: !!auth.username, // if have user change in boolean value on true
   };
@@ -61,6 +72,8 @@ function App() {
           <Route path="/vaccine/:vaccineId" element={<VaccineInfo />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/logout" element={<Logout />}></Route>
+
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
 
