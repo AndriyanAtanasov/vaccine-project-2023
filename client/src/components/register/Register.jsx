@@ -1,11 +1,29 @@
+import { useContext } from "react";
+import AuthContext from "../../contexts/authContext.js";
+import useForm from "../../hooks/useForm.js";
+
+const RegisterFormKeys = {
+  EMAIL: "email",
+  USERNAME: "username",
+  PASSWORD: "password",
+  ConfirmPASSWORD: "password",
+};
 const Register = () => {
+  const { registerSubmitHandler } = useContext(AuthContext);
+  const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
+    [RegisterFormKeys.EMAIL]: "",
+    [RegisterFormKeys.USERNAME]: "",
+    [RegisterFormKeys.PASSWORD]: "",
+    [RegisterFormKeys.ConfirmPASSWORD]: "",
+  });
+
   return (
     <div className="coronata">
       <div className="content">
         <div className="container">
           <h1 className="mb-5">Register</h1>
           <div className="register-container">
-            <form className="register-form">
+            <form className="register-form" onSubmit={onSubmit}>
               <label htmlFor="username">Username:</label>
               <br />
               <input
@@ -13,6 +31,8 @@ const Register = () => {
                 id="username"
                 autoComplete="username"
                 name="username"
+                onChange={onChange}
+                values={values[RegisterFormKeys.USERNAME]}
               />
               <br />
               <label htmlFor="email">Email address:</label>
@@ -22,6 +42,8 @@ const Register = () => {
                 id="email"
                 autoComplete="email"
                 name="email"
+                onChange={onChange}
+                values={values[RegisterFormKeys.EMAIL]}
               />
               <br />
               <label htmlFor="password">Password:</label>
@@ -31,6 +53,19 @@ const Register = () => {
                 id="password"
                 autoComplete="current-password"
                 name="password"
+                onChange={onChange}
+                values={values[RegisterFormKeys.PASSWORD]}
+              />
+              <br />
+              <label htmlFor="password">Confirm Password:</label>
+              <br />
+              <input
+                type="password"
+                id="ConfirmPassword"
+                autoComplete="current-password"
+                name="ConfirmPassword"
+                onChange={onChange}
+                values={values[RegisterFormKeys.ConfirmPASSWORD]}
               />
               <br />
               <br />

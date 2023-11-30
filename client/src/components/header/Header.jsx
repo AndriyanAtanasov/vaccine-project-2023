@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext.js";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Header = () => {
   const { isAuthenticated, username } = useContext(AuthContext);
@@ -58,13 +58,7 @@ const Header = () => {
                           {isDropdownOpen && (
                             <div className="dropdown-content">
                               <a href="#" className="dropdown-item">
-                                Home
-                              </a>
-                              <a href="#" className="dropdown-item">
-                                About
-                              </a>
-                              <a href="#" className="dropdown-item">
-                                Contact
+                                logout
                               </a>
                             </div>
                           )}

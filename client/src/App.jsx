@@ -24,13 +24,26 @@ function App() {
     const result = await authService.Login(values.email, values.password);
 
     setAuth(result);
-    console.log(auth.username);
+
+    navigate("/");
+  };
+
+  const registerSubmitHandler = async (values) => {
+    console.log(values);
+    const result = await authService.register(
+      values.email,
+      values.username,
+      values.password
+    );
+
+    setAuth(result);
 
     navigate("/");
   };
 
   const valuesContext = {
     loginSubmitHandler,
+    registerSubmitHandler,
     username: auth.username,
     isAuthenticated: !!auth.username, // if have user change in boolean value on true
   };
