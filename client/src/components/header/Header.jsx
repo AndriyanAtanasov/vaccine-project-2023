@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext.js";
 import { useState } from "react";
-import Logout from "../logout/Logout.jsx";
 
 const Header = () => {
   const { isAuthenticated, username } = useContext(AuthContext);
@@ -58,11 +57,7 @@ const Header = () => {
                           </button>
                           {isDropdownOpen && (
                             <div className="dropdown-content">
-                              <Link
-                                to="/logout"
-                                className="dropdown-item"
-                                onClick={Logout}
-                              >
+                              <Link to="/logout" className="dropdown-item">
                                 logout
                               </Link>
                             </div>

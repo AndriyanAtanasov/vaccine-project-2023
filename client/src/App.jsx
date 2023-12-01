@@ -19,7 +19,11 @@ import Logout from "./components/logout/Logout.jsx";
 
 function App() {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useState(() => {
+    localStorage.removeItem("accessToken");
+
+    return {};
+  });
 
   const loginSubmitHandler = async (values) => {
     const result = await authService.Login(values.email, values.password);
