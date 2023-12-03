@@ -9,6 +9,7 @@ export const getAll = async () => {
     return result;
   } catch {
     console.log("GET ERROR, no content");
+    return result;
   }
 };
 
@@ -19,6 +20,7 @@ export const getOne = async (vaccineId) => {
     return result;
   } catch {
     console.log("GET ERROR");
+    return result;
   }
 };
 
@@ -29,5 +31,6 @@ export const create = async (addVaccineData) => {
     return result;
   } catch {
     console.log("POST ERROR, not added new vaccine to server");
+    return result;
   }
 };
