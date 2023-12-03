@@ -1,13 +1,15 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import * as vaccineService from "../../services/vaccineService.js";
+import AuthContext from "../../contexts/authContext.js";
 
 const VaccineInfo = () => {
+  const { userId } = useContext(AuthContext);
   const [vaccine, setVaccine] = useState({});
   const { vaccineId } = useParams();
 
   useEffect(() => {
-    const test = vaccineService.getOne(vaccineId).then(setVaccine);
+    vaccineService.getOne(vaccineId).then(setVaccine);
   }, [vaccineId]);
 
   return (
@@ -34,10 +36,18 @@ const VaccineInfo = () => {
               <label>City: {vaccine.city}</label>
               <br />
             </form>
+
             <br />
           </div>
+          {userId === vaccine._ownerId && (
+            <div>
+              <Link className="read_more vaccine-more-options">Edit</Link>
+              <Link className="read_more vaccine-more-options">X</Link>
+            </div>
+          )}
         </div>
       </div>
+      <div className="coronata"></div>
       <div className="cevery_bg">
         <div className="container">
           <div className="row">

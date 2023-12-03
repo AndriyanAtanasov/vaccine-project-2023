@@ -25,7 +25,7 @@ const VaccineList = () => {
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th>
-                    <th scope="col">More options</th>
+                    <th scope="col">More info</th>
                   </tr>
                 </thead>
                 {characters.reverse().map((char) => (

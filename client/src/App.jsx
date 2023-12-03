@@ -60,6 +60,7 @@ function App() {
     registerSubmitHandler,
     logoutHandler,
     username: auth.username,
+    userId: auth._id,
     isAuthenticated: !!auth.username, // if have user change in boolean value on true
   };
 

@@ -42,8 +42,8 @@ const VaccineListItem = ({
         <td>
           <ul>
             <li>
-              <Link to={`/vaccine/${_id}`} className="read_more">
-                Info
+              <Link to={`/vaccine/${_id}`} className="read_more ">
+                Details
               </Link>
             </li>
           </ul>

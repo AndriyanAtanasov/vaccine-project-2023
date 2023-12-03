@@ -1194,3 +1194,11 @@ ul.top_infomation li i:hover {
   display: block;
   color: #333;
 }
+
+/* vaccinated btn */
+
+.vaccine-more-options {
+  width: 50px;
+
+  margin-left: 10px;
+}

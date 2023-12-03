@@ -1447,7 +1447,7 @@
   };
   var seedData = {
     vaccine: {
-      "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+      "c5923737-a2a6-4a6b-b35e-cf6605b3a8dd": {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         firstName: "Peter",
         lastName: "Atanasov",
@@ -1460,16 +1460,21 @@
         _createdOn: 1701616502213,
         _id: "c5923737-a2a6-4a6b-b35e-cf6605b3a8dd",
       },
-    },
-    comments: {
       "0a272c58-b7ea-4e09-a000-7ec988248f66": {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        content: "Great recipe!",
-        recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        firstName: "George",
+        lastName: "Atanasov",
+        email: "george@abv.bg",
+        phoneNumber: "089324999999",
+        vaccineDate: "11-12-2022",
+        vaccineType: "Pfizer",
+        country: "Bulgaria",
+        city: "Varna",
         _createdOn: 1614260681375,
         _id: "0a272c58-b7ea-4e09-a000-7ec988248f66",
       },
     },
+
     records: {
       i01: {
         name: "John1",
