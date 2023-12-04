@@ -34,3 +34,14 @@ export const create = async (addVaccineData) => {
     return result;
   }
 };
+
+export const edit = async (vaccineId, addVaccineData) => {
+  try {
+    const result = await request.put(`${baseUrl}/${vaccineId}`, addVaccineData); //edit vaccine to server
+
+    return result;
+  } catch {
+    console.log("POST ERROR, not added new vaccine to server");
+    return result;
+  }
+};

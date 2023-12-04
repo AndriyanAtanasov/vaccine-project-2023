@@ -4,7 +4,7 @@ import * as vaccineService from "../../services/vaccineService.js";
 import AuthContext from "../../contexts/authContext.js";
 
 const VaccineInfo = () => {
-  const { userId } = useContext(AuthContext);
+  const { userId, userName } = useContext(AuthContext);
   const [vaccine, setVaccine] = useState({});
   const { vaccineId } = useParams();
 
@@ -41,8 +41,18 @@ const VaccineInfo = () => {
           </div>
           {userId === vaccine._ownerId && (
             <div>
-              <Link className="read_more vaccine-more-options">Edit</Link>
-              <Link className="read_more vaccine-more-options">X</Link>
+              <Link
+                to={`/vaccine/${vaccineId}/edit`}
+                className="read_more vaccine-more-options"
+              >
+                Edit
+              </Link>
+              <Link
+                to="/vaccine/:vaccineId/edit"
+                className="read_more vaccine-more-options"
+              >
+                X
+              </Link>
             </div>
           )}
         </div>

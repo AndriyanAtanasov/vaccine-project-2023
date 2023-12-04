@@ -16,6 +16,7 @@ import AddVaccine from "./components/vaccine-create/AddVaccine.jsx";
 import Login from "./components/login/Login.jsx";
 import VaccineInfo from "./components/vaccine-info/VaccineInfo.jsx";
 import Logout from "./components/logout/Logout.jsx";
+import EditVaccine from "./components/vaccine-edit/editVaccine.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -75,6 +76,10 @@ function App() {
           <Route path="/news" element={<News />}></Route>
           <Route path="/add-vaccine" element={<AddVaccine />}></Route>
           <Route path="/vaccine/:vaccineId" element={<VaccineInfo />}></Route>
+          <Route
+            path="/vaccine/:vaccineId/edit"
+            element={<EditVaccine />}
+          ></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
