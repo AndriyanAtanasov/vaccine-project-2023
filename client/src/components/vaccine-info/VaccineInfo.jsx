@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import * as vaccineService from "../../services/vaccineService.js";
-import AuthContext from "../../contexts/authContext.js";
+import AuthContext from "../../contexts/authContext.jsx";
 
 const VaccineInfo = () => {
   const { userId, userName } = useContext(AuthContext);

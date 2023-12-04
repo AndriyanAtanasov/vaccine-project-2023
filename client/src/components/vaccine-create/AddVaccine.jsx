@@ -53,7 +53,6 @@ const AddVaccine = () => {
               <label className="col-md-12 col-sm-9" htmlFor="vaccineDate">
                 Vaccine date
               </label>
-
               <input
                 type="date"
                 id="vaccineDate"
@@ -61,7 +60,6 @@ const AddVaccine = () => {
                 min="2018-01-01"
                 max="2030-12-31"
               />
-
               <label className=" col-md-12 col-sm-9" htmlFor="vaccineType">
                 Vaccine type
               </label>

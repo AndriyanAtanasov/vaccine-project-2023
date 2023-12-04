@@ -1,8 +1,6 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import AuthContext from "./contexts/authContext.js";
-import * as authService from "./services/authService.js";
+import { AuthProvider } from "./contexts/authContext.jsx";
 
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
@@ -19,54 +17,8 @@ import Logout from "./components/logout/Logout.jsx";
 import EditVaccine from "./components/vaccine-edit/editVaccine.jsx";
 
 function App() {
-  const navigate = useNavigate();
-  const [auth, setAuth] = useState(() => {
-    localStorage.removeItem("accessToken");
-
-    return {};
-  });
-
-  const loginSubmitHandler = async (values) => {
-    const result = await authService.Login(values.email, values.password);
-
-    setAuth(result);
-
-    localStorage.setItem("accessToken", result.accessToken);
-
-    navigate("/");
-  };
-
-  const registerSubmitHandler = async (values) => {
-    console.log(values);
-    const result = await authService.register(
-      values.email,
-      values.username,
-      values.password
-    );
-
-    setAuth(result);
-
-    localStorage.setItem("accessToken", result.accessToken);
-
-    navigate("/");
-  };
-
-  const logoutHandler = () => {
-    setAuth({});
-    localStorage.removeItem("accessToken");
-  };
-
-  const valuesContext = {
-    loginSubmitHandler,
-    registerSubmitHandler,
-    logoutHandler,
-    username: auth.username,
-    userId: auth._id,
-    isAuthenticated: !!auth.username, // if have user change in boolean value on true
-  };
-
   return (
-    <AuthContext.Provider value={valuesContext}>
+    <AuthProvider>
       <div>
         <Header />
         <Routes>
@@ -89,7 +41,7 @@ function App() {
 
         <Footer />
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
