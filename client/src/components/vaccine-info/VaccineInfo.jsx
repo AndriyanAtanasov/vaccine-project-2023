@@ -1,9 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import * as vaccineService from "../../services/vaccineService.js";
 import AuthContext from "../../contexts/authContext.jsx";
 
 const VaccineInfo = () => {
+  const navigate = useNavigate();
   const { userId, userName } = useContext(AuthContext);
   const [vaccine, setVaccine] = useState({});
   const { vaccineId } = useParams();
@@ -11,6 +12,18 @@ const VaccineInfo = () => {
   useEffect(() => {
     vaccineService.getOne(vaccineId).then(setVaccine);
   }, [vaccineId]);
+
+  const onDeleteClickHandler = () => {
+    const hasConfirmed = confirm(
+      `Are you sure you want to remove your vaccine?`
+    );
+
+    if (hasConfirmed) {
+      vaccineService.del(vaccineId);
+
+      navigate("/vaccinated");
+    }
+  };
 
   return (
     <div className="coronata">
@@ -47,12 +60,12 @@ const VaccineInfo = () => {
               >
                 Edit
               </Link>
-              <Link
-                to="/vaccine/:vaccineId/edit"
+              <button
                 className="read_more vaccine-more-options"
+                onClick={onDeleteClickHandler}
               >
                 X
-              </Link>
+              </button>
             </div>
           )}
         </div>

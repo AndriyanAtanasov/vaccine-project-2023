@@ -37,11 +37,22 @@ export const create = async (addVaccineData) => {
 
 export const edit = async (vaccineId, addVaccineData) => {
   try {
-    const result = await request.put(`${baseUrl}/${vaccineId}`, addVaccineData); //edit vaccine to server
+    const result = await request.put(`${baseUrl}/${vaccineId}`, addVaccineData); //edit vaccine from server
 
     return result;
   } catch {
     console.log("POST ERROR, not added new vaccine to server");
+    return result;
+  }
+};
+
+export const del = async (vaccineId) => {
+  try {
+    const result = await request.del(`${baseUrl}/${vaccineId}`); //delete vaccine from server
+
+    return result;
+  } catch {
+    console.log("DEL ERROR, delete is fail");
     return result;
   }
 };
