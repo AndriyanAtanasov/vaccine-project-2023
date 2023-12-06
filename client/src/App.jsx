@@ -15,6 +15,7 @@ import Login from "./components/login/Login.jsx";
 import VaccineInfo from "./components/vaccine-info/VaccineInfo.jsx";
 import Logout from "./components/logout/Logout.jsx";
 import EditVaccine from "./components/vaccine-edit/editVaccine.jsx";
+import AuthGuard from "./components/guards/AuthGuard.jsx";
 
 function App() {
   return (
@@ -26,19 +27,21 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/vaccinated" element={<VaccineList />}></Route>
           <Route path="/news" element={<News />}></Route>
-          <Route path="/add-vaccine" element={<AddVaccine />}></Route>
           <Route path="/vaccine/:vaccineId" element={<VaccineInfo />}></Route>
-          <Route
-            path="/vaccine/:vaccineId/edit"
-            element={<EditVaccine />}
-          ></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/logout" element={<Logout />}></Route>
 
           <Route path="*" element={<NotFound />}></Route>
-        </Routes>
 
+          <Route element={<AuthGuard />}>
+            <Route path="/add-vaccine" element={<AddVaccine />}></Route>
+            <Route
+              path="/vaccine/:vaccineId/edit"
+              element={<EditVaccine />}
+            ></Route>
+            <Route path="/logout" element={<Logout />}></Route>
+          </Route>
+        </Routes>
         <Footer />
       </div>
     </AuthProvider>
