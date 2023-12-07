@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import * as vaccineService from "../../services/vaccineService.js";
 
 import { useEffect, useState } from "react";
@@ -141,13 +141,14 @@ const EditVaccine = () => {
               />
               <label className=" col-md-12 col-sm-9" htmlFor=""></label>
               <br />
-              <input
-                className="read_more "
-                type="submit"
-                defaultValue="Create Vaccine"
-              />
+              <input className="read_more " type="submit" />
+              <br />
             </div>
           </form>
+          <br />
+          <Link to={-1} className="read_more ">
+            Back
+          </Link>
         </div>
       </div>
     </div>
