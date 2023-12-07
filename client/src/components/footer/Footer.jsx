@@ -21,11 +21,6 @@ const Footer = () => {
                   <li>
                     <Link to="/vaccinated">Vaccinated</Link>
                   </li>
-                  <li></li>
-                  <li>
-                    <Link to="/news">news</Link>
-                  </li>
-                  <li></li>
                 </ul>
               </div>
             </div>
