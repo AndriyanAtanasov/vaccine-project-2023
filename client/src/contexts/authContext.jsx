@@ -20,13 +20,17 @@ export const AuthProvider = ({ children }) => {
 
     setAuth(result);
 
+    let test = {
+      code: 403,
+      message: "Login or password don't match",
+    };
+
     localStorage.setItem("accessToken", result.accessToken);
 
     navigate("/");
   };
 
   const registerSubmitHandler = async (values) => {
-    console.log(values);
     const result = await authService.register(
       values.email,
       values.username,

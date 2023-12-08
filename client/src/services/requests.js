@@ -33,6 +33,9 @@ const request = async (method, url, data) => {
   const result = await response.json();
 
   if (!response.ok) {
+    let test = JSON.stringify(result);
+    console.log(test);
+
     throw result;
   }
 

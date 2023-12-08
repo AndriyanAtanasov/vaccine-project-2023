@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import useForm from "../../hooks/useForm.js";
 import AuthContext from "../../contexts/authContext.jsx";
 import { Link } from "react-router-dom";
@@ -15,6 +15,12 @@ const Login = () => {
     [LoginFormKeys.EMAIL]: "",
     [LoginFormKeys.PASSWORD]: "",
   });
+
+  const [isWrongPas, setIsWrongPass] = useState(false);
+
+  const handleWrongPassword = () => {
+    setIsWrongPass(true);
+  };
 
   return (
     <div className="coronata">
@@ -44,11 +50,19 @@ const Login = () => {
                 value={values[LoginFormKeys.PASSWORD]}
               />
               <br />
+              {isWrongPas && (
+                <p style={{ color: "red" }}>Wrong email address / password</p>
+              )}
               <br />
-              <button className="read_more" type="submit">
+              <button
+                className="read_more"
+                type="submit"
+                onClick={handleWrongPassword}
+              >
                 Login
               </button>
             </form>
+
             <br />
             <p>
               Don't have an account ?

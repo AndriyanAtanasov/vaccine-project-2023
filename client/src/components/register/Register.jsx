@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../contexts/authContext.jsx";
 import useForm from "../../hooks/useForm.js";
 
@@ -17,6 +17,23 @@ const Register = () => {
     [RegisterFormKeys.ConfirmPASSWORD]: "",
   });
 
+  const [regWarningPassword, setRegWarningPassword] = useState(false);
+  const onClickRegWarning = () => {
+    if (values.password !== values.ConfirmPassword) {
+      setRegWarningPassword(true);
+    } else {
+      setRegWarningPassword(false);
+    }
+  };
+  const [regWarningEmail, setRegWarningEmail] = useState(false);
+  const onClickRegEmail = () => {
+    if (values.password !== values.email) {
+      setRegWarningEmail(true);
+    } else {
+      setRegWarningEmail(false);
+    }
+  };
+
   return (
     <div className="coronata">
       <div className="content">
@@ -24,7 +41,7 @@ const Register = () => {
           <h1 className="mb-5">Register</h1>
           <div className="register-container">
             <form className="register-form" onSubmit={onSubmit}>
-              <label htmlFor="username">Username:</label>
+              <label htmlFor="username">First name:</label>
               <br />
               <input
                 type="text"
@@ -37,6 +54,11 @@ const Register = () => {
               <br />
               <label htmlFor="email">Email address:</label>
               <br />
+              {regWarningEmail && (
+                <p style={{ color: "red" }}>
+                  Invalid or already existing email address
+                </p>
+              )}
               <input
                 type="email"
                 id="email"
@@ -48,6 +70,9 @@ const Register = () => {
               <br />
               <label htmlFor="password">Password:</label>
               <br />
+              {regWarningPassword && (
+                <p style={{ color: "red" }}>Password does not match</p>
+              )}
               <input
                 type="password"
                 id="password"
@@ -69,7 +94,14 @@ const Register = () => {
               />
               <br />
               <br />
-              <button className="read_more" type="submit">
+              <button
+                className="read_more"
+                type="submit"
+                onClick={() => {
+                  onClickRegWarning();
+                  onClickRegEmail();
+                }}
+              >
                 Register
               </button>
             </form>
